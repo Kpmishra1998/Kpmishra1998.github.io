@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+
 </head>
 <body>
 <header class="site-header">
@@ -19,6 +21,7 @@
       <li><a href="writing.html">Writing &amp; Media</a></li>
       <li><a href="conferences.html">Conferences</a></li>
       <li><a class="active" href="resources.html">Resources</a></li>
+      <li><button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch colour theme">Dark mode</button></li>
     </ul>
   </nav>
 </header>
@@ -50,5 +53,10 @@
   <div class="sanskrit">सोत्साहस्य लोकेषु न किञ्चिदपि दुर्लभम् ॥</div>
   <em><a href="https://www.amyreesanderson.com/blog/sometimes-its-the-people-no-one-imagines-anything-of-who-do-the-things-that-no-one-can-imagine/">“Sometimes it’s the people no one imagines anything of who do the things that no one can imagine.”</a></em>
 </footer>
+<script>
+function setLabel(){var b=document.querySelector('.theme-toggle');if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'Light mode':'Dark mode';}
+function toggleTheme(){var d=document.documentElement.getAttribute('data-theme')==='dark';if(d)document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme','dark');try{localStorage.setItem('theme',d?'light':'dark');}catch(e){}setLabel();}
+setLabel();
+</script>
 </body>
 </html>
